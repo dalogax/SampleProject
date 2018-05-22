@@ -29,3 +29,6 @@
 
 ## mvn wrapper ##
 .mvn
+
+## macOS ##
+.DS_Store

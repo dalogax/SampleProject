@@ -1,4 +1,5 @@
 /target/
+!.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
 .apt_generated
@@ -25,10 +26,6 @@
 
 ## vscode ##
 .vscode
-
-## mvn wrapper ##
-.mvn
-!.mvn/wrapper/maven-wrapper.jar
 
 ## macOS ##
 .DS_Store

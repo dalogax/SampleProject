@@ -29,6 +29,7 @@
 
 ## mvn wrapper ##
 .mvn
+!.mvn/wrapper/maven-wrapper.jar
 
 ## macOS ##
 .DS_Store

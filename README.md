@@ -15,3 +15,4 @@ Starter project with spring boot and jdbc
 
 ### Basic instructions:
 - Deploy -> ./mvnw spring-boot:run
+  Swagger will be loaded on http://localhost:8080/swagger-ui.html

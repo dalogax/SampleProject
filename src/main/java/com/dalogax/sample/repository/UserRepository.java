@@ -26,20 +26,20 @@ public class UserRepository
  
     @Transactional(readOnly=true)
     public List<User> findAll() {
-        return jdbcTemplate.query("select * from users", 
+        return jdbcTemplate.query("SELECT ID, NAME, EMAIL FROM USER", 
                 new UserRowMapper());
     }
  
     @Transactional(readOnly=true)
     public User findUserById(int id) {
         return jdbcTemplate.queryForObject(
-            "select * from users where id=?",
+            "SELECT ID, NAME, EMAIL FROM USER WHERE ID=?",
             new Object[]{id}, new UserRowMapper());
     }
  
     public User create(final User user) 
     {
-        final String sql = "insert into users(name,email) values(?,?)";
+        final String sql = "INSERT INTO USER(NAME,EMAIL) VALUES(?,?)";
  
         KeyHolder holder = new GeneratedKeyHolder();
         jdbcTemplate.update(new PreparedStatementCreator() {
@@ -63,9 +63,9 @@ class UserRowMapper implements RowMapper<User>
     @Override
     public User mapRow(ResultSet rs, int rowNum) throws SQLException {
         User user = new User();
-        user.setId(rs.getInt("id"));
-        user.setName(rs.getString("name"));
-        user.setEmail(rs.getString("email"));
+        user.setId(rs.getInt("ID"));
+        user.setName(rs.getString("NAME"));
+        user.setEmail(rs.getString("EMAIL"));
         return user;
     }
 }

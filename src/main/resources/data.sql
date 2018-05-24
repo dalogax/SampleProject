@@ -1,3 +1,3 @@
-insert into users(id, name, email) values(1,'Siva','siva@gmail.com');
-insert into users(id, name, email) values(2,'Prasad','prasad@gmail.com');
-insert into users(id, name, email) values(3,'Reddy','reddy@gmail.com');
+INSERT INTO USER(ID, NAME, EMAIL) VALUES(1,'Dani','dalogax@gmail.com');
+INSERT INTO USER(ID, NAME, EMAIL) VALUES(2,'Peter','peter@gmail.com');
+INSERT INTO USER(ID, NAME, EMAIL) VALUES(3,'Mike','mike@gmail.com');

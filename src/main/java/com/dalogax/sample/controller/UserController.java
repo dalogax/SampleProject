@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dalogax.sample.dto.UserDto;
 import com.dalogax.sample.model.User;
 import com.dalogax.sample.repository.UserRepository;
+import com.dalogax.sample.service.UserService;
 import com.google.common.collect.Lists;
 
 import io.swagger.annotations.Api;
@@ -26,14 +28,17 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ApiOperation(value = "List all the users", response = Iterable.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully retrieved list"),
             @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
     })
-    public List<User> getAll() {
-        return Lists.newArrayList(userRepository.findAll());
+    public List<UserDto> getAll() {
+        return Lists.newArrayList(userService.getAllUsers());
     }
 
     @ApiOperation(value = "Gets the information of an user", response = User.class)

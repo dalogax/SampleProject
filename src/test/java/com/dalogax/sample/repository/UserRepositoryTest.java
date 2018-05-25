@@ -16,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javassist.NotFoundException;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserRepositoryTest {
@@ -31,19 +33,34 @@ public class UserRepositoryTest {
     }
  
     @Test
-    public void findUserById() {
+    public void findUserById() throws NotFoundException {
         User user = userRepository.findUserById(1);
         assertNotNull(user);
     }
  
     @Test
-    public void createUser() {
-        User user = new User(0, "John", "john@gmail.com");
+    public void createUser() throws NotFoundException {
+        User user = new User(0, "Peter", "peter@gmail.com");
         User savedUser = userRepository.create(user);
         User newUser = userRepository.findUserById(savedUser.getId());
         assertNotNull(newUser);
-        assertEquals("John", newUser.getName());
-        assertEquals("john@gmail.com", newUser.getEmail());
+        assertEquals("Peter", newUser.getName());
+        assertEquals("peter@gmail.com", newUser.getEmail());
+    }
+
+    @Test
+    public void updateUser() throws NotFoundException {
+        User user = new User(0, "Juan", "juan@gmail.com");
+        User savedUser = userRepository.create(user);
+        savedUser.setName("Peter Griffin");
+        savedUser.setEmail("peter@outlook.com");
+
+        userRepository.update(savedUser);
+
+        User updatedUser = userRepository.findUserById(savedUser.getId());
+        assertNotNull(updatedUser);
+        assertEquals("Peter Griffin", updatedUser.getName());
+        assertEquals("peter@outlook.com", updatedUser.getEmail());
     }
 
 }

@@ -1,5 +1,6 @@
 package com.dalogax.sample.mapper;
 
+import com.dalogax.sample.dto.UserDataDto;
 import com.dalogax.sample.dto.UserDto;
 import com.dalogax.sample.model.User;
 
@@ -13,4 +14,7 @@ public interface UserMapper {
 
     UserDto userToUserDto(User user);
     User userDtoToUser(UserDto userDto);
+    User userDataDtoToUser(UserDataDto userDataDto);
+    UserDto userDataDtoToUserDto(UserDataDto userDataDto);
+
 }

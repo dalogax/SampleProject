@@ -20,6 +20,6 @@ Starter project with spring boot and jdbc
   - H2 embebed database console will be loaded on http://localhost:8080/h2-console
 
 ### TODO
-- Fix context on tests
+- Fix mapper, is not mapping..
 - Add field validators https://spring.io/guides/gs/validating-form-input/
 - Implement profiles http://www.baeldung.com/spring-profiles

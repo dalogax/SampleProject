@@ -1,8 +1,6 @@
-package com.dalogax.sample.mapper;
+package com.dalogax.sample.web.dto;
 
-import com.dalogax.sample.dto.UserDataDto;
-import com.dalogax.sample.dto.UserDto;
-import com.dalogax.sample.model.User;
+import com.dalogax.sample.model.entity.User;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -16,5 +14,13 @@ public interface UserMapper {
     User userDtoToUser(UserDto userDto);
     User userDataDtoToUser(UserDataDto userDataDto);
     UserDto userDataDtoToUserDto(UserDataDto userDataDto);
+
+    default UserDto idAndUserDataDtoToUserDto(int id, UserDataDto userDataDto){
+        return UserDto.builder()
+                .id(id)
+                .name(userDataDto.getName())
+                .email(userDataDto.getEmail())
+                .build();
+    }
 
 }

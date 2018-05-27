@@ -1,4 +1,4 @@
-package com.dalogax.sample.repository;
+package com.dalogax.sample.model.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import com.dalogax.sample.model.User;
+import com.dalogax.sample.model.entity.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;

@@ -9,6 +9,7 @@ Starter project with spring boot and jdbc
   - /src/main/resources/schema.sql -> schema definition for embebed database, will be executed on boot
   - /src/main/resources/data.sql -> data definition for embebed database, will be executed on boot
 - DDD modeling
+- Project lombok and mapStruct for clean code
 
 ### Configuration:
 - /src/main/resources/application.properties -> main configuration file, check comments there

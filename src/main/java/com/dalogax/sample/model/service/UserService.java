@@ -1,12 +1,12 @@
-package com.dalogax.sample.service;
+package com.dalogax.sample.model.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.dalogax.sample.dto.UserDataDto;
-import com.dalogax.sample.dto.UserDto;
-import com.dalogax.sample.mapper.UserMapper;
-import com.dalogax.sample.repository.UserRepository;
+import com.dalogax.sample.model.repository.UserRepository;
+import com.dalogax.sample.web.dto.UserDataDto;
+import com.dalogax.sample.web.dto.UserDto;
+import com.dalogax.sample.web.dto.UserMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
-
+    
     public List<UserDto> getAllUsers(){
         return this.userRepository.findAll().stream()
                                   .map(user -> UserMapper.INSTANCE.userToUserDto(user))
@@ -37,8 +37,7 @@ public class UserService {
     }
 
     public void updateUser(int id, UserDataDto userDataDto) throws NotFoundException{
-        UserDto userDto = UserMapper.INSTANCE.userDataDtoToUserDto(userDataDto);
-        userDto.setId(id);
+        UserDto userDto = UserMapper.INSTANCE.idAndUserDataDtoToUserDto(id,userDataDto);
         this.userRepository.update(UserMapper.INSTANCE.userDtoToUser(userDto));
     }
 

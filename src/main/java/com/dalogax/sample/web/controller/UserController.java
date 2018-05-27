@@ -1,10 +1,10 @@
-package com.dalogax.sample.controller;
+package com.dalogax.sample.web.controller;
 
 import java.util.List;
 
-import com.dalogax.sample.dto.UserDataDto;
-import com.dalogax.sample.dto.UserDto;
-import com.dalogax.sample.service.UserService;
+import com.dalogax.sample.web.dto.UserDataDto;
+import com.dalogax.sample.web.dto.UserDto;
+import com.dalogax.sample.model.service.UserService;
 import com.google.common.collect.Lists;
 
 import org.springframework.beans.factory.annotation.Autowired;

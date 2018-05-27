@@ -1,14 +1,13 @@
-package com.dalogax.sample.repository;
+package com.dalogax.sample.model.repository;
 
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import com.dalogax.sample.model.User;
-import com.dalogax.sample.repository.UserRepository;
+import com.dalogax.sample.model.entity.User;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
